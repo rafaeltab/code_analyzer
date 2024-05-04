@@ -1,6 +1,4 @@
-mod language;
-
-use language::{Language, LanguageImplementation};
+use code_analyzer_module::language::{Language, LanguageImplementation};
 use semver::{BuildMetadata, Prerelease, Version};
 
 fn main() {
@@ -25,4 +23,6 @@ fn main() {
             build: BuildMetadata::EMPTY,
         },
     };
+
+    println!("{}", implementation);
 }

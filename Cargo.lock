@@ -3,7 +3,15 @@
 version = 3
 
 [[package]]
-name = "proseit"
+name = "cli"
+version = "0.1.0"
+dependencies = [
+ "code_analyzer_module",
+ "semver",
+]
+
+[[package]]
+name = "code_analyzer_module"
 version = "0.1.0"
 dependencies = [
  "semver",
