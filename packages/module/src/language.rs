@@ -16,6 +16,7 @@ pub struct Language {
 /// let impl = LanguageImplementation {
 ///   
 /// }
+/// ```
 #[derive(Debug)]
 pub struct LanguageImplementation {
     /// The language this implementation is for.
