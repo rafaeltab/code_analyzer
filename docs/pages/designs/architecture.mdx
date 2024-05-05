@@ -37,6 +37,9 @@ It does the following things:
 
 ```mermaid
 classDiagram
+    class ParserInterface {
+        + cool
+    }
     ParserInterface <-- TreeSitterMarkdown
     ParserInterface <-- TreeSitterGo
     ParserLoader --> ParserInterface

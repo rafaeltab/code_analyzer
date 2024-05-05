@@ -1,0 +1,4 @@
+/* Select all class diagram uml nodes that have no fields/methods and make the little lines invisible */
+.node:not(:has(g > foreignObject[transform]:not(.classTitle) > div > .nodeLabel)) > line {
+    stroke: transparent !important;
+}
