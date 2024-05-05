@@ -6,12 +6,12 @@ version = 3
 name = "cli"
 version = "0.1.0"
 dependencies = [
- "code_analyzer_module",
+ "code_analyzer_parser_interface",
  "semver",
 ]
 
 [[package]]
-name = "code_analyzer_module"
+name = "code_analyzer_parser_interface"
 version = "0.1.0"
 dependencies = [
  "semver",

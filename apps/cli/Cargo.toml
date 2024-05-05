@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-code_analyzer_module = { path = "../../packages/crates/module" }
+code_analyzer_parser_interface = { path = "../../packages/crates/parser_interface" }
 semver = "1.0.22"

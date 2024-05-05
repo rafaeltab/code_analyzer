@@ -1,5 +1,5 @@
 [package]
-name = "code_analyzer_module"
+name = "code_analyzer_parser_interface"
 version = "0.1.0"
 edition = "2021"
 
