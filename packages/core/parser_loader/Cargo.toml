@@ -1,0 +1,8 @@
+[package]
+name = "code_analyzer_parser_loader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code_analyzer_parser_interface = {path = "../parser_interface"}
+libloading = "0.8.3"

@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 code_analyzer_parser_interface = { path = "../../packages/core/parser_interface" }
+code_analyzer_parser_loader = { path = "../../packages/core/parser_loader" }
 code_analyzer_common = { path = "../../packages/core/common" }
 semver = "1.0.22"
 libloading = "0.8.3"

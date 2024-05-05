@@ -47,4 +47,8 @@ impl Parser for ExampleParser {
     fn get_author(&self) -> &str {
         &self.language.author
     }
+
+    fn get_implementation(&self) -> &LanguageImplementation {
+        &self.language
+    }
 }

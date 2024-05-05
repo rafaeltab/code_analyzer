@@ -21,6 +21,7 @@ version = "0.1.0"
 dependencies = [
  "code_analyzer_common",
  "code_analyzer_parser_interface",
+ "code_analyzer_parser_loader",
  "libloading",
  "semver",
 ]
@@ -38,6 +39,14 @@ version = "0.1.0"
 dependencies = [
  "code_analyzer_common",
  "semver",
+]
+
+[[package]]
+name = "code_analyzer_parser_loader"
+version = "0.1.0"
+dependencies = [
+ "code_analyzer_parser_interface",
+ "libloading",
 ]
 
 [[package]]
