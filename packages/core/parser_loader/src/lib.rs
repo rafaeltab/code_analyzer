@@ -17,11 +17,8 @@ struct Plugin {
 impl Drop for Plugin {
     fn drop(&mut self) {
         unsafe {
-            // Get the raw pointer to the boxed parser
             let raw_ptr = ManuallyDrop::take(&mut self.parser);
-
-            // Convert the raw pointer back into a Box to properly deallocate
-            drop(raw_ptr)
+            drop(raw_ptr);
         }
     }
 }
