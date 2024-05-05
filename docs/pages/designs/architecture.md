@@ -37,9 +37,19 @@ It does the following things:
 
 ```mermaid
 classDiagram
-    class ParserLoader {
+    ParserInterface <-- TreeSitterMarkdown
+    ParserInterface <-- TreeSitterGo
+    ParserLoader --> ParserInterface
 
-    }
+    AnalyzerInterface <-- ValeAnalyzer
+    AnalyzerLoader --> AnalyzerInterface
 
+    Kernel <-- ParserLoader
+    Kernel <-- AnalyzerLoader
+
+    AppInterface --> Kernel
+    LspServer --> AppInterface
+    RpcServer --> AppInterface
+    Cli --> AppInterface
 ```
 
