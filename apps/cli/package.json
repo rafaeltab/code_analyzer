@@ -5,6 +5,6 @@
         "build": "cargo build --bin cli"
     },
     "dependencies": {
-        "@code_analyzer/crates": "workspace:*"
+        "@code_analyzer/core": "workspace:*"
     }
 }
