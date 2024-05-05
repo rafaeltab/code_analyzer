@@ -1,0 +1,12 @@
+[package]
+name = "lsp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code_analyzer_parser_interface = { path = "../../packages/core/parser_interface" }
+code_analyzer_parser_loader = { path = "../../packages/core/parser_loader" }
+code_analyzer_common = { path = "../../packages/core/common" }
+semver = "1.0.22"
+tower-lsp = "0.20.0"
+tokio = { version = "1.37.0", features = ["full"] }

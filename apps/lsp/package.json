@@ -1,0 +1,10 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "@code_analyzer/lsp",
+    "scripts": {
+        "build": "cargo build --bin lsp"
+    },
+    "dependencies": {
+        "@code_analyzer/crates": "workspace:*"
+    }
+}
