@@ -1,0 +1,10 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "@code_analyzer/cli",
+    "scripts": {
+        "build": "cargo build --bin cli"
+    },
+    "dependencies": {
+        "@code_analyzer/crates": "workspace:*"
+    }
+}

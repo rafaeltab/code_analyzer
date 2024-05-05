@@ -33,3 +33,13 @@ It does the following things:
 4. Takes the parsed buffers and sends them to the analyzers.
 5. Takes the diagnostics from the analyzers and gives them back to the tools.
 
+## Diagram
+
+```mermaid
+classDiagram
+    class ParserLoader {
+
+    }
+
+```
+

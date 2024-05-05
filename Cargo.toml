@@ -1,2 +1,3 @@
 [workspace]
-members = ["apps/cli", "packages/module"] 
+members = ["apps/cli", "packages/crates/module"] 
+resolver = "2"
