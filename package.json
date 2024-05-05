@@ -1,14 +1,15 @@
 {
-    "$schema": "https://json.schemastore.org/package.json",
-    "name": "@code_analyzer/repo",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {},
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "turbo": "1.13.3"
-    }
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@code_analyzer/repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "1.13.3"
+  },
+  "packageManager": "pnpm@8.7.5"
 }
