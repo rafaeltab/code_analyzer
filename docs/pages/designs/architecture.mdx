@@ -1,5 +1,10 @@
 # Architecture design
 
+Within the architecture there are several sections:
+- External: Code that is created by external developers
+- Core: Code that is part of the core package
+- Integration layer: Code that compiles into a separate library
+
 ## Components
 Each component may consist of several packages, but there should be a clear separation between each component.
 
@@ -7,21 +12,45 @@ Each component may consist of several packages, but there should be a clear sepa
 
 This component should keep track of loaded parser modules.
 
+The parser loader is part of the core.
+
 ### Analyzer loader
 
 This component should keep track of loaded analyzer modules.
 
-### Module interface
+The analyzer loader is part of the core.
 
-This component should provide a unified interface for modules to implement.
+### Parser interface
+
+This component should provide a unified interface for parsers to implement.
+
+The parser interface is part of the core.
+
+### Parser module
+
+This component should allow external code to easily implement a parser.
+
+The parser module is part of the integration layer.
+A parser module gets compiled together with external code into a library.
 
 ### Analyzer interface
 
 This component should provide a unified interface for analyzers to implement.
 
+The analyzer interface is part of the core.
+
+### Analyzer module
+
+This component should allow external code to easily implement an analyzer.
+
+The analyzer module is part of the integration layer.
+An analyzer module gets compiled together with external code into a library.
+
 ### App interface
 
 This component should provide a unified interface for apps to use, such as a RPC server, CLI, and LSP server.
+
+The app interface is part of the core.
 
 ### Kernel
 
@@ -33,18 +62,47 @@ It does the following things:
 4. Takes the parsed buffers and sends them to the analyzers.
 5. Takes the diagnostics from the analyzers and gives them back to the tools.
 
+The kernel is part of the core.
+
 ## Diagram
 
 ```mermaid
 classDiagram
-    class ParserInterface {
-        + cool
+    namespace External {
+        class TreeSitterMarkdown
+        class TreeSitterGo
+        class ValeAnalyzer
     }
-    ParserInterface <-- TreeSitterMarkdown
-    ParserInterface <-- TreeSitterGo
+
+    namespace IntegrationLayer {
+        class ParserModule
+        class AnalyzerModule
+    }
+
+    namespace Core {
+        class ParserLoader
+        class AnalyzerLoader
+        class Kernel
+        class AppInterface
+
+        class ParserInterface
+        class AnalyzerInterface
+    }
+
+    namespace App {
+        class LspServer
+        class RpcServer
+        class Cli
+    }
+
+    ParserModule <-- TreeSitterMarkdown
+    ParserModule <-- TreeSitterGo
     ParserLoader --> ParserInterface
 
-    AnalyzerInterface <-- ValeAnalyzer
+    ParserInterface <-- ParserModule
+    AnalyzerInterface <-- AnalyzerModule
+
+    AnalyzerModule <-- ValeAnalyzer
     AnalyzerLoader --> AnalyzerInterface
 
     Kernel <-- ParserLoader

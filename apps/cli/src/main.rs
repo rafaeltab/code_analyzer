@@ -1,28 +1,31 @@
-use code_analyzer_parser_interface::language::{Language, LanguageImplementation};
-use semver::{BuildMetadata, Prerelease, Version};
+use std::env;
+
+use code_analyzer_parser_interface::Parser;
+
+use libloading::{Library, Symbol};
 
 fn main() {
-    let implementation = LanguageImplementation {
-        language: Language {
-            name: "markdown".to_string(),
-        },
-        implementation_key: "tree-sitter-markdown".to_string(),
-        author: "@rafaeltab".to_string(),
-        version: Version {
-            major: 0,
-            minor: 2,
-            patch: 3,
-            pre: Prerelease::EMPTY,
-            build: BuildMetadata::EMPTY,
-        },
-        implementation_version: Version {
-            major: 0,
-            minor: 0,
-            patch: 1,
-            pre: Prerelease::EMPTY,
-            build: BuildMetadata::EMPTY,
-        },
+    let cwd = match env::current_dir() {
+        Ok(current_dir) => current_dir,
+        Err(_) => {
+            panic!();
+        }
     };
+    println!("Starting cli in {}", cwd.to_str().unwrap());
 
-    println!("{}", implementation);
+    let path_to_plugin = "target/debug/libca_module_example.so";
+
+    unsafe {
+
+        let lib = Library::new(path_to_plugin).expect("Failed to load plugin");
+        let symbol: Symbol<unsafe extern "C" fn () -> *mut dyn Parser> = lib
+            .get(b"get_parser_instance")
+            .expect("Failed to find symbol");
+        let plugin = (symbol)();
+        let plugin_ref = plugin.as_ref().expect("Expected parser to exist");
+        let language = plugin_ref.get_language();
+        let author = plugin_ref.get_author();
+
+        println!("{} by {}", language, author);
+    }
 }

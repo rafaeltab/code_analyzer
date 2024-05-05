@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 semver = "1.0.22"
+code_analyzer_common = {path = "../common"}

@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
-    "name": "@code_analyzer/crates",
+    "name": "@code_analyzer/core",
     "scripts": {
         "build": "cargo build --package \"code_analyzer_*\""
     }
