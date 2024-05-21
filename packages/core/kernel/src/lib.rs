@@ -1,3 +1,6 @@
-struct Kernel {
+// use code_analyzer_loader::AnalyzerLoader;
 
+#[derive(Default)]
+pub struct Kernel {
 }
+

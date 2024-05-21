@@ -1,0 +1,7 @@
+[package]
+name = "ca_parser_example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code_analyzer_parser_interface = {path = "../../parser_interface"}

@@ -1,18 +1,16 @@
-use code_analyzer_parser_interface::{language::{Language, LanguageImplementation}, BuildMetadata, Parser, Prerelease, Version};
+use std::str::Utf8Error;
 
-#[no_mangle]
-#[allow(improper_ctypes_definitions)]
-pub extern "C" fn get_parser_instance() -> *mut dyn Parser {
-    let parser: Box<dyn Parser> = Box::new(ExampleParser::new());
-    Box::into_raw(parser)
-}
+use code_analyzer_parser_interface::{
+    language::{Language, LanguageImplementation},
+    BuildMetadata, Parser, ParserImplementation, Prerelease, Version,
+};
 
-struct ExampleParser {
+pub struct ExampleParser {
     language: LanguageImplementation,
 }
 
-impl ExampleParser {
-    fn new() -> Self {
+impl Default for ExampleParser {
+    fn default() -> Self {
         ExampleParser {
             language: LanguageImplementation {
                 language: Language {
@@ -50,5 +48,14 @@ impl Parser for ExampleParser {
 
     fn get_implementation(&self) -> &LanguageImplementation {
         &self.language
+    }
+}
+
+impl ParserImplementation<Result<String, Utf8Error>> for ExampleParser {
+    fn parse(&self, text: impl AsRef<[u8]>) -> Result<String, Utf8Error> {
+        match std::str::from_utf8(text.as_ref()) {
+            Ok(val) => Ok(val.to_string()),
+            Err(err) => Err(err),
+        }
     }
 }

@@ -1,0 +1,9 @@
+[package]
+name = "code_analyzer_tree_sitter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+semver = "1.0.22"
+tree-sitter = "0.22.6"
+code_analyzer_common = {path = "../common"}

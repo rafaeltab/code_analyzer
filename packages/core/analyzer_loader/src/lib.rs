@@ -4,7 +4,7 @@ use code_analyzer_parser_interface::Parser;
 use libloading::{Library, Symbol};
 
 #[derive(Default)]
-pub struct ParserLoader {
+pub struct AnalyzerLoader {
     parsers: Vec<Plugin>,
 }
 
@@ -23,10 +23,10 @@ impl Drop for Plugin {
     }
 }
 
-impl ParserLoader {
+impl AnalyzerLoader {
     pub fn load_parser(mut self, path: &str) -> Self {
         unsafe {
-            self.parsers.push(ParserLoader::load_parser_unsafe(path));
+            self.parsers.push(AnalyzerLoader::load_parser_unsafe(path));
         }
         self
     }

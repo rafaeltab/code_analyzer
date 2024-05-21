@@ -49,6 +49,8 @@ importers:
 
   packages/modules/example: {}
 
+  packages/modules/markdown: {}
+
 packages:
 
   /@babel/runtime@7.24.5:

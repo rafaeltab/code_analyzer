@@ -1,0 +1,13 @@
+[package]
+name = "ca_parser_markdown"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code_analyzer_parser_interface = {path = "../../parser_interface"}
+code_analyzer_tree_sitter = {path = "../../tree_sitter_interface"}
+tree-sitter = "0.22.6"
+tree-sitter-md = "0.2.3"
+
+[build-dependencies]
+cc="*"

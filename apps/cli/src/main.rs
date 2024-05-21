@@ -1,8 +1,11 @@
-use code_analyzer_parser_loader::ParserLoader;
+use code_analyzer_loader::AnalyzerLoader;
 
 fn main() {
-    let path_to_plugin = "target/debug/libca_module_example.so";
-    let mut parser_loader = ParserLoader::default();
-    parser_loader = parser_loader.load_parser(path_to_plugin);
+    let plugins = [
+    ];
+    let mut parser_loader = AnalyzerLoader::default();
+    for plugin in plugins {
+        parser_loader = parser_loader.load_parser(plugin);
+    }
     parser_loader.print_implementations();
 }
